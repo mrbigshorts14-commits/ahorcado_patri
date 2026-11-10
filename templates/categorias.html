@@ -1,0 +1,67 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Elegí tu categoría</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <main class="pantalla-categorias">
+
+        <section class="tarjeta tarjeta-categorias">
+
+            <p class="subtitulo">✦ TU PRÓXIMO DESAFÍO ✦</p>
+
+            <h1>Elegí tu categoría</h1>
+
+            <p class="descripcion">
+                ¿Qué te gustaría adivinar hoy?
+            </p>
+
+            <div class="lista-categorias">
+
+                <a href="/jugar/comidas" class="boton-principal boton-categoria">
+                    🍓 Comidas
+                    <span>→</span>
+                </a>
+
+                <a href="/jugar/industrial" class="boton-principal boton-categoria">
+                    📚 Industrial
+                    <span>→</span>
+                </a>
+
+                <a href="/jugar/peliculas" class="boton-principal boton-categoria">
+                    🎬 Películas
+                    <span>→</span>
+                </a>
+
+                <a href="/jugar/videojuegos" class="boton-principal boton-categoria">
+                    🎮 Videojuegos
+                    <span>→</span>
+                </a>
+
+                <a href="/jugar/aplicaciones" class="boton-principal boton-categoria">
+                    📱 Aplicaciones
+                    <span>→</span>
+                </a>
+
+            </div>
+
+        </section>
+
+        <a href="/" class="volver-categorias">
+            ← Volver al inicio
+        </a>
+
+    </main>
+
+</body>
+</html>

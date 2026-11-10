@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ranking | Ahorcado</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <header class="barra-superior">
+        <a href="/" class="logo">
+            <span class="logo-icono">✦</span>
+            AHORCADO
+        </a>
+
+        <span class="etiqueta">RANKING GENERAL</span>
+    </header>
+
+    <main class="inicio">
+
+        <section class="presentacion">
+
+            <p class="subtitulo">✦ LOS MEJORES JUGADORES ✦</p>
+
+            <h1>
+                Tabla de
+                <span>posiciones.</span>
+            </h1>
+
+            <p class="descripcion">
+                Estos son los jugadores que más puntos
+                acumularon en sus partidas.
+            </p>
+
+        </section>
+
+        <section class="tarjeta">
+
+            <div class="tarjeta-cabecera">
+                <span class="punto"></span>
+                RANKING GENERAL
+            </div>
+
+            {% if resultados %}
+
+                {% for jugador in resultados %}
+
+                    <div class="regla">
+                        <span class="numero">
+                            {{ loop.index }}
+                        </span>
+
+                        <div>
+                            <h2>{{ jugador._id }}</h2>
+                            <p>{{ jugador.puntos_totales }} puntos</p>
+                        </div>
+                    </div>
+
+                {% endfor %}
+
+            {% else %}
+
+                <p class="descripcion">
+                    Todavía no hay jugadores en el ranking.
+                    ¡Sé el primero en jugar!
+                </p>
+
+            {% endif %}
+
+            <a href="/" class="boton-principal">
+                Volver al inicio
+                <span>→</span>
+            </a>
+
+        </section>
+
+    </main>
+
+</body>
+</html>

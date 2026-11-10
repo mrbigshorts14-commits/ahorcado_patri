@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ahorcado | Poné a prueba tu ingenio</title>
+
+    <!-- Conectamos los estilos de nuestra página -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="pagina-inicio">
+
+    <!-- ENCABEZADO -->
+    <header class="barra-superior">
+        <a href="/" class="logo">
+            <span class="logo-icono">✦</span>
+            AHORCADO
+        </a>
+
+        <span class="etiqueta">JUEGO CLÁSICO</span>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="inicio">
+
+        <section class="presentacion">
+
+            <p class="subtitulo">✦  DESAFIÁ TU INGENIO  ✦</p>
+
+            <h1>
+                Una palabra.
+                <span>Ocho intentos.</span>
+            </h1>
+
+            <p class="descripcion">
+                Poné a prueba tu vocabulario, elegí tus letras
+                y descubrí la palabra secreta antes de quedarte
+                sin oportunidades.
+            </p>
+
+           
+        <form action="/" method="POST" class="formulario-ingreso">
+
+            <label for="jugador">¿Cómo te llamás?</label>
+
+             <input
+                type="text"
+                id="jugador"
+                name="jugador"
+                placeholder="Ingresá tu nombre..."
+                maxlength="20"
+                required
+                            >
+
+            <button type="submit" class="boton-comenzar">
+                    COMENZAR A JUGAR ✦
+            </button>
+
+        </form>
+
+    <a href="/ranking" class="boton-ranking">
+    🏆 VER RANKING GENERAL
+    </a>
+
+    <p class="nota">¿Podrás descubrir la palabra?</p>
+
+        </section>
+
+        <!-- TARJETA INFORMATIVA -->
+        <section class="tarjeta" id="como-jugar">
+
+            <div class="tarjeta-cabecera">
+                <span class="punto"></span>
+                CÓMO SE JUEGA
+            </div>
+
+            <div class="regla">
+                <span class="numero">01</span>
+
+                <div>
+                    <h2>Descubrí</h2>
+                    <p>Una palabra secreta te está esperando.</p>
+                </div>
+            </div>
+
+            <div class="regla">
+                <span class="numero">02</span>
+
+                <div>
+                    <h2>Elegí tus letras</h2>
+                    <p>Probá distintas letras para revelar la palabra.</p>
+                </div>
+            </div>
+
+            <div class="regla">
+                <span class="numero">03</span>
+
+                <div>
+                    <h2>¡No te rindas!</h2>
+                    <p>Tenés ocho intentos para conseguirlo.</p>
+                </div>
+            </div>
+
+            <div class="decoracion">
+                <span>H</span>
+                <span>A</span>
+                <span>_</span>
+                <span>O</span>
+                <span>_</span>
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+</body>
+</html>

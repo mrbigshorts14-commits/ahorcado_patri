@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partida Juego | Ahorcado</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="{{ categoria }}">
+
+    <header class="barra-superior">
+        <a href="/" class="logo">
+            <span class="logo-icono">✦</span>
+            AHORCADO
+        </a>
+
+        <a href="/" class="etiqueta">VOLVER AL INICIO</a>
+    </header>
+
+    
+
+<main class="juego-contenedor">
+
+    <div class="zona-superior">
+
+        <section class="presentacion">
+            <h2>¡Vamos, {{ jugador }}!</h2>
+            <p class="subtitulo">✦ TU PARTIDA ✦</p>
+
+            <h1>
+                Descubrí la
+                <span>palabra secreta.</span>
+            </h1>
+
+            <p class="descripcion">
+                Elegí una letra y descubrí si forma parte
+                de la palabra oculta.
+            </p>
+        </section>
+
+        <div class="columna-imagen">
+
+            <section class="estado-resumido">
+
+                <div class="dato-partida">
+                    <span class="numero">♡</span>
+                    <div>
+                        <h2>Intentos restantes</h2>
+                        <p id="intentos">{{ intentos }} intentos</p>
+                    </div>
+                </div>
+
+                <div class="dato-partida">
+                    <span class="numero">✦</span>
+                    <div>
+                        <h2>Puntaje de esta partida</h2>
+                        <p>{{ puntos_partida }} pts</p>
+                    </div>
+                </div>
+
+            </section>
+
+            {% if categoria == "peliculas" %}
+            <div class="escena-cine">
+                <img src="{{ url_for('static', filename='img/cine/etapa_' ~ errores ~ '.png') }}"
+                     class="personaje-cine" alt="Personaje">
+            </div>
+            {% endif %}
+
+            {% if categoria == "comidas" %}
+            <div class="escena-comidas">
+                <img src="{{ url_for('static', filename='img/comidas/etapa_' ~ errores ~ '.jpg') }}"
+                     class="personaje-comidas" alt="Personaje">
+            </div>
+            {% endif %}
+
+            {% if categoria == "videojuegos" %}
+            <div class="escena-videojuegos">
+                <img src="{{ url_for('static', filename='img/videojuego/etapa_' ~ errores ~ '.png') }}"
+                     class="personaje-videojuego" alt="Personaje">
+            </div>
+            {% endif %}
+
+            {% if categoria == "industrial" %}
+            <div class="escena-industrial">
+                <img src="{{ url_for('static', filename='img/indu/etapa_' ~ errores ~ '.png') }}"
+                     class="personaje-industrial" alt="Personaje">
+            </div>
+            {% endif %}
+
+            {% if categoria == "aplicaciones" %}
+            <div class="escena-aplicaciones">
+                <img src="{{ url_for('static', filename='img/aplicacion/etapa_' ~ errores ~ '.png') }}"
+                     class="personaje-aplicaciones" alt="Personaje">
+            </div>
+            {% endif %}
+
+        </div>
+
+    </div>
+
+    <div class="zona-inferior">
+
+        <section class="tarjeta palabra-tarjeta">
+            <div class="tarjeta-cabecera">
+                <span class="punto"></span>
+                PALABRA SECRETA
+            </div>
+
+            <p class="decoracion" id="palabra">
+                {{ palabra_mostrada }}
+            </p>
+        </section>
+
+        {% if mensaje %}
+            <p class="mensaje-final">{{ mensaje }}</p>
+        {% endif %}
+
+        <section class="tarjeta teclado-tarjeta">
+
+            <div class="tarjeta-cabecera">
+                <span class="punto"></span>
+                ELEGÍ UNA LETRA
+            </div>
+
+            {% if not mensaje %}
+                <form method="POST" class="teclado-form">
+                    {% for letra in "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ" %}
+                        <button
+                            type="submit"
+                            name="letra"
+                            value="{{ letra }}"
+                            class="boton-letra"
+                            {% if letra in letras_intentadas %}disabled{% endif %}
+                        >
+                            {{ letra }}
+                        </button>
+                    {% endfor %}
+                </form>
+            {% else %}
+                <p>La partida ha terminado.</p>
+                <a href="/reiniciar" class="boton">Jugar de nuevo</a>
+            {% endif %}
+
+        </section>
+
+    </div>
+
+</main>
+
+
+
+    <footer>
+        Cada letra cuenta · ¡Mucha suerte!
+    </footer>
+
+</body>
+</html>
