@@ -87,9 +87,12 @@ def inicio():
     if request.method =="POST":
         jugador = request.form.get("jugador", "").strip()
         if jugador and len(jugador)<=20:
-            session["jugador"]= jugador
+            #limpiamos la sesion del jugador anterior
+            session.clear()
+            #guardamos el nuevo jugador 
+            session["jugador"] = jugador
+            session["puntaje_total"] = 0
             return redirect("/categorias")
-
     return render_template("index.html")
 
 @app.route("/categorias")
@@ -163,7 +166,7 @@ def jugar(categoria):
                 print ("¡resultado guardado en MongoDB!")
             except Exception as e:
                     print("error al guardar el resultado:", e)
-
+    errores = 8 -  session["intentos"]
     # Mostramos la página con los datos actualizados.
     return render_template(
         "juego.html",
@@ -173,7 +176,9 @@ def jugar(categoria):
         letras_intentadas=mi_partida.letras_intentadas,
         puntos_partida=session["puntos_partida"],
         puntaje_total=session["puntaje_total"],
-        jugador=session.get("jugador")
+        jugador=session.get("jugador"),
+        categoria=categoria,
+        errores=errores
     )
 @app.route("/reiniciar")
 def reiniciar():
