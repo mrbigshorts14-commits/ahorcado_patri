@@ -8,9 +8,9 @@ app = Flask (__name__)
 app.secret_key = "clave-juego-ahorcado"
 
 categorias = {
-    "comidas": ["CHAMPIÑONES","CHOCOLATINA","HAMBURGUESA","SALCHIPAPAS","LANGOSTINOS"],
-    "industrial": ["MATEMATICAS", "CALCULADORA","CUADERNILLO"],
-    "peliculas": ["RATATOUILLE","INTERSTELAR","BEETLEJUICE","TRANSFORMERS"],
+    "comidas": ["CHAMPIÑONES","CHOCOLATADA","HAMBURGUESA","SALCHIPAPAS","LANGOSTINOS"],
+    "industrial": ["INFORMATICA","EXPO TECNICA", "CONSTRUCCIONES", "ELECTROMECANICA","ESTUDIANTINA"],
+    "peliculas": ["RATATOUILLE","INTERSTELAR","BEETLEJUICE","TRANSFORMERS","RAPIDOS Y FURIOSOS"],
     "videojuegos": ["MINECRAFTS","FORTNITE","CALL OF DUTY"],
     "aplicaciones": ["INSTAGRAMS","WHATSAPPS","FACEBOOKS","SPOTIFY"]
 }
